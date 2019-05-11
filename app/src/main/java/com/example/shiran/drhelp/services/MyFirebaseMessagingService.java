@@ -1,3 +1,4 @@
+/*
 package com.example.shiran.drhelp.services;
 
 import android.content.Context;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();
 
+    private static final String DEBUG = "SHIRAN_DEBUG";
     private NotificationUtils notificationUtils;
 
     @Override
@@ -49,6 +51,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void handleNotification(String message) {
         if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
             // app is in foreground, broadcast the push message
+            Log.d(DEBUG, "handleNotification: NotificationUtils = true");
             Intent pushNotification = new Intent(Config.PUSH_NOTIFICATION);
             pushNotification.putExtra("message", message);
             LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotification);
@@ -56,13 +59,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             // play notification sound
             NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
             notificationUtils.playNotificationSound();
+        } else {
+            Log.d(DEBUG, "handleNotification: NotificationUtils = false");
 
-        }else{
             // If the app is in background, firebase itself handles the notification
         }
     }
 
     private void handleDataMessage(JSONObject json) {
+        Log.d(DEBUG, "handleDataMessage");
+
         Log.e(TAG, "push json: " + json.toString());
 
         try {
@@ -82,8 +88,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.e(TAG, "imageUrl: " + imageUrl);
             Log.e(TAG, "timestamp: " + timestamp);
 
+            Intent resultIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            resultIntent.putExtra("message", message);
 
             if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
+                Log.d(DEBUG, "handleDataMessage: isAppIsInBackground=true");
+
                 // app is in foreground, broadcast the push message
                 Intent pushNotification = new Intent(Config.PUSH_NOTIFICATION);
                 pushNotification.putExtra("message", message);
@@ -92,10 +102,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 // play notification sound
                 NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
                 notificationUtils.playNotificationSound();
+                showNotificationMessageWithBigImage(getApplicationContext(), title, message, timestamp, resultIntent, imageUrl);
+
+//                notificationUtils.showSmallNotification(this, message, timestamp, resultIntent, );
+
             } else {
                 // app is in background, show the notification in notification tray
-                Intent resultIntent = new Intent(getApplicationContext(), LoginActivity.class);
-                resultIntent.putExtra("message", message);
+                Log.d(DEBUG, "handleDataMessage: isAppIsInBackground=false");
+
 
                 // check for image attachment
                 if (TextUtils.isEmpty(imageUrl)) {
@@ -112,21 +126,30 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
 
-    /**
+    */
+/**
      * Showing notification with text only
-     */
+     *//*
+
     private void showNotificationMessage(Context context, String title, String message, String timeStamp, Intent intent) {
+        Log.d(DEBUG, "showNotificationMessage:");
+
         notificationUtils = new NotificationUtils(context);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notificationUtils.showNotificationMessage(title, message, timeStamp, intent);
     }
 
-    /**
+    */
+/**
      * Showing notification with text and image
-     */
+     *//*
+
     private void showNotificationMessageWithBigImage(Context context, String title, String message, String timeStamp, Intent intent, String imageUrl) {
+        Log.d(DEBUG, "showNotificationMessageWithBigImage:");
+
         notificationUtils = new NotificationUtils(context);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notificationUtils.showNotificationMessage(title, message, timeStamp, intent, imageUrl);
     }
 }
+*/

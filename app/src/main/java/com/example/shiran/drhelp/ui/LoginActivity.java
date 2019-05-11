@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginObserve
     private void onNeedToRegisterPressed(View view) {
         Intent intent_toRegister = new Intent(getApplicationContext(), RegistrationActivity.class);
         startActivity(intent_toRegister);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void onLoginButtonPressed(View view) {
@@ -100,11 +101,14 @@ public class LoginActivity extends AppCompatActivity implements UserLoginObserve
                 Intent intent = new Intent(getApplicationContext(), ContactsActivity.class);
                 intent.putExtra("usersList", gson.toJson(userList.toArray(new User[0])));
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
                 return null;
             });
         }else if(user instanceof Translator){
             Intent intent = new Intent(getApplicationContext(), AvailabilityActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
 
         Log.d("login:", "Authentication succeeded.");

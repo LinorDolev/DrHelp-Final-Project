@@ -1,3 +1,4 @@
+/*
 package com.example.shiran.drhelp.util;
 
 import android.app.ActivityManager;
@@ -30,10 +31,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.shiran.drhelp.util.Config.APP_TITLE;
+
 public class NotificationUtils {
 
     private static String TAG = NotificationUtils.class.getSimpleName();
     private Context context;
+    final int icon = R.mipmap.ic_launcher_round;
 
     public NotificationUtils(Context context) {
         this.context = context;
@@ -49,8 +53,6 @@ public class NotificationUtils {
         if(TextUtils.isEmpty(message)){
             return;
         }
-
-        final int icon = R.mipmap.ic_launcher_round;
 
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         final PendingIntent resultPendingIntent = PendingIntent.getActivity(context,
@@ -75,12 +77,12 @@ public class NotificationUtils {
                             title, message, timeStamp,
                             resultPendingIntent,notificationSound);
                 } else{
-                    showSmallNotification(builder, icon, title, message,
+                    showSmallNotification(builder, message,
                             timeStamp, resultPendingIntent, notificationSound);
                 }
             }
         } else {
-            showSmallNotification(builder, icon, title, message,
+            showSmallNotification(builder, message,
                     timeStamp, resultPendingIntent, notificationSound );
             playNotificationSound();
         }
@@ -97,14 +99,14 @@ public class NotificationUtils {
         }
     }
 
-    private void showSmallNotification(NotificationCompat.Builder builder, int icon, String title, String message, String timeStamp, PendingIntent resultPendingIntent, Uri notificationSound) {
+    private void showSmallNotification(NotificationCompat.Builder builder,  String message, String timeStamp, PendingIntent resultPendingIntent, Uri notificationSound) {
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
 
         inboxStyle.addLine(message);
         Notification notification;
-        notification = builder.setSmallIcon(icon).setTicker(title).setWhen(0)
+        notification = builder.setSmallIcon(icon).setTicker(APP_TITLE).setWhen(0)
                 .setAutoCancel(true)
-                .setContentTitle(title)
+                .setContentTitle(APP_TITLE)
                 .setContentIntent(resultPendingIntent)
                 .setSound(notificationSound)
                 .setStyle(inboxStyle)
@@ -199,3 +201,4 @@ public class NotificationUtils {
         notificationManager.cancelAll();
     }
 }
+*/

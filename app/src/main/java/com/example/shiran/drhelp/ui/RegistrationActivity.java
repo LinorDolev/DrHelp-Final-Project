@@ -135,6 +135,7 @@ public class RegistrationActivity extends AppCompatActivity implements UserRegis
                 , Toast.LENGTH_SHORT).show();
         Intent intent_toLogin = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent_toLogin);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
         Log.d("create-user:", "create user succeeded.");
     }

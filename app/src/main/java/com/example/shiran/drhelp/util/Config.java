@@ -15,5 +15,7 @@ public class Config {
 
     public static final String MY_CHANNEL_ID = "My channel id";
 
+    public static final String APP_TITLE = "DrHelp";
+
     public static final String NOTIFICATION_MESSAGE = "is calling you on DrHelp";
 }
