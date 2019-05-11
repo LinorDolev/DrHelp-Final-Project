@@ -1,3 +1,4 @@
+/*
 package com.example.shiran.drhelp.entities.shifts;
 
 import android.os.Build;
@@ -7,9 +8,9 @@ import java.time.LocalTime;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public enum ShiftTime {
-    Morning(LocalTime.of(8,00), LocalTime.of(13,00)),
-    Afternoon(LocalTime.of(13,00), LocalTime.of(18,00)),
-    Evening(LocalTime.of(18,00),LocalTime.of(23,00));
+    Morning(LocalTime.of(8,0), LocalTime.of(13, 0)),
+    Afternoon(LocalTime.of(13, 0), LocalTime.of(18, 0)),
+    Evening(LocalTime.of(18, 0),LocalTime.of(23, 0));
 
     private LocalTime start;
     private LocalTime end;
@@ -35,3 +36,4 @@ public enum ShiftTime {
         this.end = end;
     }
 }
+*/
