@@ -20,9 +20,9 @@ import com.opentok.android.Subscriber;
 
 public class VideoChatActivity extends AppCompatActivity implements Session.SessionListener, PublisherKit.PublisherListener {
 
-    private static String API_KEY = "46243432";
-    private static String SESSION_ID = "2_MX40NjI0MzQzMn5-MTU0NjE4NDI3NjQ5NX5sVzhobjlRVndFTVRQM1dsaW1rSlF4ZTR-fg";
-    private static String TOKEN = "T1==cGFydG5lcl9pZD00NjI0MzQzMiZzaWc9MmI5OWMwY2U4YWE1NjE0OWEzYTEwZDQ0ZGM0ODliOTc0Y2E2MTQwMjpzZXNzaW9uX2lkPTJfTVg0ME5qSTBNelF6TW41LU1UVTBOakU0TkRJM05qUTVOWDVzVnpob2JqbFJWbmRGVFZSUU0xZHNhVzFyU2xGNFpUUi1mZyZjcmVhdGVfdGltZT0xNTQ2MTg0MzU0Jm5vbmNlPTAuNjM0MDk5MjM0ODU4MTMyNSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTQ4Nzc2MzU1JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
+    private static String API_KEY = "46327282";
+    private static String SESSION_ID = "2_MX40NjMyNzI4Mn5-MTU1NzY0OTY5NDcyN35tcE1mZDJrRVE2RDJMMFhGalBvbzV5WHl-fg";
+    private static String TOKEN = "T1==cGFydG5lcl9pZD00NjMyNzI4MiZzaWc9YmVmYzRkNjliOTA1MDkxNDNiYTdjYWI3NDRhZTQwYzBmM2RkMzQzOTpzZXNzaW9uX2lkPTJfTVg0ME5qTXlOekk0TW41LU1UVTFOelkwT1RZNU5EY3lOMzV0Y0UxbVpESnJSVkUyUkRKTU1GaEdhbEJ2YnpWNVdIbC1mZyZjcmVhdGVfdGltZT0xNTU3NjQ5NzU3Jm5vbmNlPTAuNjM5NDI5NTg1NTMzNjE5NiZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTYwMjQxNzU3JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
     private static final String LOG_TAG = VideoChatActivity.class.getSimpleName();
 
     private FrameLayout frameLayout_subscriber;
