@@ -1,5 +1,6 @@
 package com.example.shiran.drhelp.ui;
 
+import android.content.Intent;
 import android.support.design.button.MaterialButton;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.example.shiran.drhelp.services.FirebaseUserService;
+import com.example.shiran.drhelp.services.UserService;
 import com.example.shiran.drhelp.util.Permissions;
 import com.example.shiran.drhelp.R;
 import com.opentok.android.OpentokError;
@@ -36,11 +39,23 @@ public class VideoChatActivity extends AppCompatActivity implements Session.Sess
     private Publisher publisher;
     private Subscriber subscriber;
 
+    private String toUserName;
+    private String toUserId;
+    private UserService userService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_chat);
+
+        userService = FirebaseUserService.getInstance(getApplicationContext());
+
+        Intent contactIntent = getIntent();
+        toUserName = contactIntent.getStringExtra("toUserName");
+        toUserId = contactIntent.getStringExtra("toUserId");
+        Log.d("callDebug:", "I'm calling to " + toUserName + " id: " + toUserId);
+
 
         checkPermissions();
         initializeReferences();
@@ -54,6 +69,7 @@ public class VideoChatActivity extends AppCompatActivity implements Session.Sess
     }
 
     private void onEndCallButtonPressed(View view) {
+        userService.setCallIsOn();
         session.disconnect();
         finish();
     }
@@ -91,6 +107,9 @@ public class VideoChatActivity extends AppCompatActivity implements Session.Sess
     private void streamSession(Session session) {
         publisher = new Publisher.Builder(this).build();
         publisher.setPublisherListener(this);
+
+        Log.d("callDebug:", "publisher name " + publisher.getName());
+
         frameLayout_publisher.addView(publisher.getView());
         session.publish(publisher);
     }
@@ -105,6 +124,8 @@ public class VideoChatActivity extends AppCompatActivity implements Session.Sess
         Log.d(LOG_TAG, "Stream Received");
         if(subscriber == null){
             subscriber = new Subscriber.Builder(this, stream).build();
+            Log.d("callDebug:", "subscriber " + subscriber);
+
             session.subscribe(subscriber);
             frameLayout_subscriber.addView(subscriber.getView());
         }

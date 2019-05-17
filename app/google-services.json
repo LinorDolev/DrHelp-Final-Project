@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "199441529995-6qgmfp3hun76smi4bmbpolfa5rcm16js.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shiran.drhelp",
+            "certificate_hash": "45edeace2ddd423abbfe13241e44581b89870653"
+          }
+        },
+        {
           "client_id": "199441529995-fmpbd7hbn7nii4hnm2c2d4415qfvpvvm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +41,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "199441529995-kqvp2ov4n013irge05fjleh6tp4a6t9i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

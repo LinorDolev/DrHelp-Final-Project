@@ -39,7 +39,7 @@ public class RegistrationActivity extends AppCompatActivity implements UserRegis
         setContentView(R.layout.activity_registration);
 
         initRegistrationReferences();
-        userService = new FirebaseUserService();
+        userService = new FirebaseUserService(getApplicationContext());
         userService.setUserRegistrationObserver(this);
         radioGroup_role.setOnCheckedChangeListener(this::onDoctorRadioButtonClicked);
         button_Register.setOnClickListener(this::onRegistrationButtonClicked);
@@ -75,20 +75,21 @@ public class RegistrationActivity extends AppCompatActivity implements UserRegis
             if(!isValidDoctorForm((DoctorRegistrationForm) registrationForm)){
                 Log.d("register-doctor:", "invalid form.");
                 return;
-            }
+            } else userService.registerUser(registrationForm, this, true);
 
-        }else{
+
+        } else {
             registrationForm = new RegistrationForm(
                     firstName, lastName, email, password);
 
             if(!isValidForm(registrationForm)){
                 Log.d("register-user:", "invalid form.");
                 return;
-            }
+            } else userService.registerUser(registrationForm, this, false);
+
         }
 
         Log.d("register-user:", "valid form.");
-        userService.registerUser(registrationForm, this);
     }
 
     private void initRegistrationReferences(){

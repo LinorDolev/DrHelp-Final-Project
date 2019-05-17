@@ -43,16 +43,27 @@
                 android:layout_marginTop="30dip"
                 android:clickable="false"/>
 
-            <TextView
-                android:id="@+id/contact_list_textView"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/shift_board_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="100dip"
-                android:layout_marginBottom="10dip"
-                android:text="@string/contactList"
-                android:textSize="15sp"
-                android:clickable="true"/>
+                android:text="shift board"
+                android:layout_gravity="center"/>
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/receive_call_button_translator"
+                android:layout_width="197dp"
+                android:layout_height="66dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:backgroundTint="#17F71E"
+                android:clickable="true"
+                android:text="@string/answer"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                app:cornerRadius="30dp"
+                android:visibility="gone"
+                app:icon="@drawable/ic_call_white_24dp" />
 
 
 

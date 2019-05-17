@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,11 @@ import android.widget.Toast;
 
 import com.example.shiran.drhelp.R;
 import com.example.shiran.drhelp.entities.User;
+
 import com.example.shiran.drhelp.services.FirebaseNotificationService;
+import com.example.shiran.drhelp.services.FirebaseUserService;
 import com.example.shiran.drhelp.services.NotificationService;
+import com.example.shiran.drhelp.services.UserService;
 import com.example.shiran.drhelp.services.observers.NotificationServiceObserver;
 
 import java.util.List;
@@ -25,12 +29,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     private List<User> userList;
     private Context context;
     private NotificationService notificationService;
+    private UserService userService;
 
     public UserAdapter(Context context, List<User> userList) {
         this.context = context;
         this.userList = userList;
-        this.notificationService = FirebaseNotificationService.getInstance();
+        this.notificationService = FirebaseNotificationService.getInstance(context);
         this.notificationService.subscribe(this);
+        this.userService = FirebaseUserService.getInstance(context);
     }
 
     @NonNull
@@ -48,8 +54,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         userViewHolder.setUser(user);
     }
 
-    private void onCallButtonPressed(View view) {
+    private void onCallButtonPressed(View view, User toUser) {
         Intent to_videoChat_Intent = new Intent(this.context, VideoChatActivity.class);
+        to_videoChat_Intent.putExtra("toUserName", toUser.getFirstName());
+        to_videoChat_Intent.putExtra("toUserId", toUser.getId());
         this.context.startActivity(to_videoChat_Intent);
     }
 
@@ -97,7 +105,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         private void onCallClicked(View view){
             UserAdapter.this.notificationService.call(user);
-            UserAdapter.this.onCallButtonPressed(view);
+            UserAdapter.this.userService.callToUser(user);
+            Log.d("callDebug2:", "I'm calling to " + user.getFirstName() + " id: " + user.getId());
+
+            UserAdapter.this.onCallButtonPressed(view, user);
         }
     }
 }

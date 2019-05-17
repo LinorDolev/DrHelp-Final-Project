@@ -36,7 +36,7 @@ public class ContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_contacts);
-        userService = FirebaseUserService.getInstance();
+        userService = FirebaseUserService.getInstance(getApplicationContext());
         recyclerView = findViewById(R.id.recycler_view);
 
         Gson gson = new Gson();

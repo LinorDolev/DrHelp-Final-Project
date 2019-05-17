@@ -28,7 +28,7 @@ public class ResetPasswordActivity extends AppCompatActivity implements UserRese
 
         initResetPasswordReferences();
 
-        userService = FirebaseUserService.getInstance();
+        userService = FirebaseUserService.getInstance(getApplicationContext());
         userService.setUserResetPasswordObserver(this);
 
         button_resetPassword.setOnClickListener(this::onResetPasswordButtonPressed);

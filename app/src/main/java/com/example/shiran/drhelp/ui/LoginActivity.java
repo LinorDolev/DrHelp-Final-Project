@@ -16,6 +16,7 @@ import com.example.shiran.drhelp.entities.Doctor;
 import com.example.shiran.drhelp.entities.Translator;
 import com.example.shiran.drhelp.entities.User;
 import com.example.shiran.drhelp.services.FirebaseUserService;
+import com.example.shiran.drhelp.services.SharedPrefernceStorage;
 import com.example.shiran.drhelp.services.UserService;
 import com.example.shiran.drhelp.services.observers.UserLoginObserver;
 import com.google.gson.Gson;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginObserve
     private TextView textView_forgotMyPassword;
     private TextView textView_toRegister;
     private MaterialButton button_login;
+    private SharedPrefernceStorage storage;
 
     private UserService userService;
 
@@ -40,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginObserve
 
         initLoginReferences();
 
-        userService = FirebaseUserService.getInstance();
+        userService = FirebaseUserService.getInstance(getApplicationContext());
         userService.setUserLoginObserver(this);
 
         textView_toRegister.setOnClickListener(this::onNeedToRegisterPressed);
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements UserLoginObserve
     }
 
     private void initLoginReferences() {
+        storage = new SharedPrefernceStorage(getApplicationContext());
         editText_userEmail = findViewById(R.id.email_editText_login);
         editText_userPassword = findViewById(R.id.password_editText_login);
         textView_forgotMyPassword = findViewById(R.id.link_forgot_password);
@@ -92,11 +95,15 @@ public class LoginActivity extends AppCompatActivity implements UserLoginObserve
 
     @Override
     public void onLoginSucceed(User user) {
+        storage.saveData(user.getFirstName() + " " + user.getLastName(), "name");
+
         if(user instanceof Doctor){
             Gson gson = new Gson();
             String userId = user.getId();
+
             userService.getAllAvailableUsers(userList -> {
                 Log.d("current user id", userId);
+
 
                 Intent intent = new Intent(getApplicationContext(), ContactsActivity.class);
                 intent.putExtra("usersList", gson.toJson(userList.toArray(new User[0])));

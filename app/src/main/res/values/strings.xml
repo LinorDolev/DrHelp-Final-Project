@@ -22,6 +22,10 @@
     <string name="shiftTitle">My weekly shifts</string>
     <string name="doctorRole">I\'m a doctor</string>
     <string name="translatorRole">I\'m a translator</string>
+    <string name="answer">Answer call</string>
+    <string name="translatorAvailable">You are available to translate now</string>
+
+
 
 
 </resources>

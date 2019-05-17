@@ -5,6 +5,7 @@ import android.arch.core.util.Function;
 
 import com.example.shiran.drhelp.entities.forms.RegistrationForm;
 import com.example.shiran.drhelp.entities.User;
+import com.example.shiran.drhelp.entities.forms.ShiftForm;
 import com.example.shiran.drhelp.services.observers.UserLoginObserver;
 import com.example.shiran.drhelp.services.observers.UserRegistrationObserver;
 import com.example.shiran.drhelp.services.observers.UserResetPasswordObserver;
@@ -12,7 +13,8 @@ import com.example.shiran.drhelp.services.observers.UserResetPasswordObserver;
 import java.util.List;
 
 public interface UserService {
-    void registerUser(RegistrationForm registrationForm, Activity activity);
+
+    void registerUser(RegistrationForm registrationForm, Activity activity, Boolean isDoctor);
 
     void setUserRegistrationObserver(UserRegistrationObserver userRegistrationObserver);
 
@@ -32,9 +34,11 @@ public interface UserService {
 
     void setUserStatus(boolean available);
 
-    int getNumberOfUsers();
+    int getNumberOfTranslators();
 
-   // List<User> getAllAvailableUsers(String id);
+    int getNumberOfDoctors();
+
+    // List<User> getAllAvailableUsers(String id);
 
     String getCurrentUserId();
 
@@ -47,4 +51,12 @@ public interface UserService {
     User getCurrentUser();
 
     void setUserShifts(String shifts);
+
+    void shiftRegistration(ShiftForm shiftForm);
+
+    void callToUser(User toUser);
+
+    void setCallIsOn();
+
+    boolean checkIfItsForMe(User user);
 }

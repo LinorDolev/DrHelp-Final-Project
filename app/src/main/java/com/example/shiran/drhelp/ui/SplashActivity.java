@@ -1,13 +1,13 @@
-package com.example.shiran.drhelp;
+package com.example.shiran.drhelp.ui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.example.shiran.drhelp.ui.LoginActivity;
+import com.example.shiran.drhelp.R;
 
 
 public class SplashActivity extends AppCompatActivity {

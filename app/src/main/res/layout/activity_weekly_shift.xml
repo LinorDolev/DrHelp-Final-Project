@@ -56,28 +56,38 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@mipmap/sunday_round" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="63dp"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/sunday_morn"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/sun_text_view"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/morn" />
+                            android:layout_gravity="center"/>
+                        <RadioGroup
+                            android:id="@+id/sun_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/sunday_morn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/morn" />
 
-                        <CheckBox
-                            android:id="@+id/sunday_eve"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/eve" />
+                            <RadioButton
+                                android:id="@+id/sunday_eve"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/eve" />
+                        </RadioGroup>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -100,28 +110,39 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@mipmap/monday_round"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="63dp"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/monday_morn"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/mon_text_view"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/morn" />
+                            android:layout_gravity="center"/>
 
-                        <CheckBox
-                            android:id="@+id/monday_eve"
+                        <RadioGroup
+                            android:id="@+id/mon_group"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/eve" />
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/monday_morn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/morn" />
+
+                            <RadioButton
+                                android:id="@+id/monday_eve"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/eve" />
+                        </RadioGroup>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -145,28 +166,39 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@mipmap/tuesday_round"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="63dp"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/tuesday_morn"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/tue_text_view"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/morn" />
+                            android:layout_gravity="center"/>
 
-                        <CheckBox
-                            android:id="@+id/tuesday_eve"
+                        <RadioGroup
+                            android:id="@+id/tue_group"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/eve" />
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/tuesday_morn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/morn" />
+
+                            <RadioButton
+                                android:id="@+id/tuesday_eve"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/eve" />
+                        </RadioGroup>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -189,28 +221,39 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@mipmap/wednesday_round"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="63dp"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/wednesday_morn"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/wed_text_view"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/morn" />
+                            android:layout_gravity="center"/>
 
-                        <CheckBox
-                            android:id="@+id/wednesday_eve"
+                        <RadioGroup
+                            android:id="@+id/wed_group"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/eve" />
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/wednesday_morn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/morn" />
+
+                            <RadioButton
+                                android:id="@+id/wednesday_eve"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/eve" />
+                        </RadioGroup>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -234,28 +277,39 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@mipmap/thursday_round"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="63dp"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/thursday_morn"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/thu_text_view"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/morn" />
+                            android:layout_gravity="center"/>
+                        <RadioGroup
+                            android:id="@+id/thu_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <CheckBox
-                            android:id="@+id/thursday_eve"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/eve" />
+                            <RadioButton
+                                android:id="@+id/thursday_morn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/morn" />
+
+                            <RadioButton
+                                android:id="@+id/thursday_eve"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/eve" />
+                        </RadioGroup>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -278,28 +332,40 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@mipmap/friday_round"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="63dp"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <CheckBox
-                            android:id="@+id/friday_morn"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/fri_text_view"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/morn" />
+                            android:layout_gravity="center"/>
 
-                        <CheckBox
-                            android:id="@+id/friday_eve"
+                        <RadioGroup
+                            android:id="@+id/fri_group"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/eve" />
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/friday_morn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/morn" />
+
+                            <RadioButton
+                                android:id="@+id/friday_eve"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/eve" />
+                        </RadioGroup>
                     </LinearLayout>
 
                 </LinearLayout>

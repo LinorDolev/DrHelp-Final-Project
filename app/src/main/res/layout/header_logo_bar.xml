@@ -6,12 +6,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="20dp"
-    android:paddingBottom="5dip">
+    android:paddingBottom="20dip">
 
     <!-- Logo Start-->
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="198dp"
+        android:layout_height="74dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logo2_drhelp" />
     <!-- Logo Ends -->

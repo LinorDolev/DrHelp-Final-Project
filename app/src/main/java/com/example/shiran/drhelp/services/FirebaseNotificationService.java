@@ -1,5 +1,6 @@
 package com.example.shiran.drhelp.services;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.shiran.drhelp.entities.User;
@@ -16,16 +17,22 @@ public class FirebaseNotificationService extends NotificationServiceObservable {
     /**
      * Singleton
      **/
-    private static NotificationService instance = new FirebaseNotificationService();
+    //private static NotificationService instance = new FirebaseNotificationService(Context context);
     private FirebaseAuth firebaseAuth;
     private UserService userService;
+    private static FirebaseNotificationService instance;
 
-    private FirebaseNotificationService() {
+    private FirebaseNotificationService(Context context) {
         firebaseAuth = FirebaseAuth.getInstance();
-        userService = FirebaseUserService.getInstance();
+        userService = FirebaseUserService.getInstance(context);
     }
 
-    public static NotificationService getInstance() {
+    public static NotificationService getInstance(Context context) {
+
+        if(instance == null) {
+            return instance = new FirebaseNotificationService(context) {
+            };
+        }
         return instance;
     }
 
